@@ -1,21 +1,36 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+button {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.4rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
 }
 .container {
-    margin: auto;
-    width: 960px;
-    border: 3px solid green;
-    display: flex;
-    flex-wrap: wrap;
-    aspect-ratio: 1/1;
+  margin: auto;
+  width: 960px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .square {
-    border: 2px solid rgb(143, 22, 22);
+  border: 1.5px solid grey;
+  aspect-ratio: 1/1;
 }
