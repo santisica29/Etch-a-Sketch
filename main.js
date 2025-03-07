@@ -6,13 +6,6 @@ color.addEventListener("change", pickColor);
 
 createGrid();
 
-const grids = document.querySelectorAll(".square");
-grids.forEach((sq) => {
-  sq.addEventListener("mouseover", (e) => {
-    e.target.style.background = colorForGrid;
-  });
-});
-
 btn.addEventListener("click", createNewGrid);
 
 function pickColor(e) {
@@ -48,4 +41,15 @@ function createGrid(squares = 16) {
     grid.classList.add("square");
     container.appendChild(grid);
   }
+
+  const grids = document.querySelectorAll(".square");
+  grids.forEach((sq) => {
+    sq.addEventListener("mouseover", (e) => {
+      if (e.target.style.background != ""){
+        e.target.style.opacity = `${window.getComputedStyle(e.target).opacity - 0.1}`;
+        console.log(e.target.style.opacity)
+      }
+      e.target.style.background = colorForGrid;
+    });
+  });
 }
