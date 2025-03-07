@@ -9,6 +9,16 @@ h1 {
   margin-top: 1.5rem;
 }
 
+.colorPicker {
+  margin: 1rem;
+  text-align: center;
+}
+
+.colorPicker > label {
+  display: block;
+  text-transform: uppercase;
+}
+
 button {
   display: block;
   margin: 1rem auto;
@@ -24,7 +34,7 @@ button:hover {
   color: white;
 }
 .container {
-  margin: auto;
+  margin:  0 auto 3em;
   width: 960px;
   display: flex;
   flex-wrap: wrap;
