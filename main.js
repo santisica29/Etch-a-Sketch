@@ -1,15 +1,34 @@
 const container = document.querySelector(".container");
-const btn = document.querySelector("button");
+const btn = document.querySelector("#newGrid");
 const color = document.querySelector("#gridColor");
-let colorForGrid = color.value;
+const controlerBtn = document.querySelector("#controlerBtn");
+let controlerOption;
+let colorForGrid = hexToRGB(color.value);
 color.addEventListener("change", pickColor);
+
+controlerBtn.addEventListener("click", () => {
+  controlerOption = document.querySelector("#controler").value;
+  console.log(controlerOption);
+});
 
 createGrid();
 
 btn.addEventListener("click", createNewGrid);
 
 function pickColor(e) {
-  colorForGrid = e.target.value;
+  colorForGrid = hexToRGB(e.target.value);
+}
+
+function hexToRGB(hex) {
+  if (hex.startsWith("#")) {
+    hex = hex.slice(1);
+  }
+
+  const r = parseInt(hex.slice(0, 2), 16);
+  const g = parseInt(hex.slice(2, 4), 16);
+  const b = parseInt(hex.slice(4, 6), 16);
+
+  return `RGB(${r}, ${g}, ${b})`;
 }
 
 function createNewGrid() {
@@ -45,11 +64,25 @@ function createGrid(squares = 16) {
   const grids = document.querySelectorAll(".square");
   grids.forEach((sq) => {
     sq.addEventListener("mouseover", (e) => {
-      if (e.target.style.background != ""){
-        e.target.style.opacity = `${window.getComputedStyle(e.target).opacity - 0.1}`;
-        console.log(e.target.style.opacity)
-      }
       e.target.style.background = colorForGrid;
+
+      switch (controlerOption) {
+        case "random":
+          e.target.style.background = randomRGB();
+          break;
+        case "lighter":
+          e.target.style.opacity = `${window.getComputedStyle(e.target).opacity - 0.1}`;
+          break;
+        case "darker":
+          // dont know how to get alpha value of rgb to make it darker
+          // or another way to do it  
+          break;
+        default:
+          break;
+      } 
     });
   });
+}
+function randomRGB(){
+  return `RGB(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
 }

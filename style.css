@@ -6,7 +6,7 @@
 
 h1 {
   text-align: center;
-  margin-top: 1.5rem;
+  margin: 1.5rem;
 }
 
 .colorPicker {
@@ -19,8 +19,11 @@ h1 {
   text-transform: uppercase;
 }
 
-button {
+#newGrid {
   display: block;
+}
+
+button {
   margin: 1rem auto;
   padding: 0.4rem 1.2rem;
   border: none;
@@ -43,4 +46,13 @@ button:hover {
 .square {
   border: 1.5px solid grey;
   aspect-ratio: 1/1;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.controlers {
+  margin-left: auto;
 }
